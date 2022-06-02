@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Guiche pratico</string>
+    <string name="novoticket">Ticket: 1234</string>
+    <string name="acompanheTicket">Seu ticket é: 1234</string>
+    <string name="historicoTicket">Historico de ticket: 1234</string>
 </resources>

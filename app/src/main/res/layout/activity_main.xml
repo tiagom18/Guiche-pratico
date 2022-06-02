@@ -1,93 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="7dp">
+    android:background="@color/azulfigma"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-
-        android:layout_marginBottom="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/Perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/guiche_pratico_logo" />
+        app:srcCompat="@drawable/guiche_pratico_logo" />
 
     <Button
+        android:id="@+id/NovoTicket"
 
-        android:id="@+id/Perfil"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/laranjafigma"
-  
-        android:text="Perfil"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/btn_novo_ticket"
+
+        android:text="Novo ticket"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/GerenciarSenhas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:backgroundTint="@color/laranjafigma" />
 
     <Button
+        android:id="@+id/acompanhe_seu_ticket"
 
-        android:id="@+id/GerenciarSenhas"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/laranjafigma"
-        android:text="Senhas"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/acompanhe_seu_ticket"
+
+        android:text="Acompanhe seu ticket"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/Historico"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Perfil" />
+        app:backgroundTint="@color/laranjafigma" />
 
     <Button
-
-        android:id="@+id/Historico"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:backgroundTint="@color/laranjafigma"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="60dp"
-        android:text="Historico"
+        android:id="@+id/angry_btn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/historico"
+        android:text="Histórico "
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GerenciarSenhas" />
+        app:backgroundTint="@color/laranjafigma" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
