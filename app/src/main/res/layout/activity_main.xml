@@ -21,8 +21,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_novo_ticket"
-
         android:text="Novo ticket"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -34,13 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/acompanhe_seu_ticket"
-
+        android:layout_marginTop="50dp"
         android:text="Acompanhe seu ticket"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:backgroundTint="@color/laranjafigma" />
 
     <Button
+        android:layout_marginTop="50dp"
         android:id="@+id/angry_btn"
         android:layout_width="match_parent"
         android:layout_height="100dp"
