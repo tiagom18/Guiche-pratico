@@ -20,42 +20,51 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/seuTicket"
+        android:text="@string/opcaoPrioridade"
         android:layout_margin="30dp"
         android:textSize="30sp"/>
 
-    <Button
-        android:id="@+id/confirmarChegada"
-        android:layout_marginTop="50dp"
+    <RadioButton
+        android:id="@+id/prioridadeNormal"
         android:layout_width="match_parent"
+
         android:layout_height="60dp"
         android:background="@drawable/modelo_botao"
-        android:text="Confirmar Chegada"
+        android:text="Normal"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:backgroundTint="#DC7A0F" />
-    <Button
-        android:id="@+id/cancelarAtendimento"
+    <RadioButton
+        android:id="@+id/prioridadePrioritaria"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/modelo_botao"
-        android:text="Cancelar Atendimento"
+        android:text="Prioridade"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:backgroundTint="#DC7A0F" />
-    <Button
-        android:id="@+id/menuInicial"
+    <RadioButton
+        android:id="@+id/prioridadeJuridica"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/modelo_botao"
-        android:text="Voltar ao menu inicial"
+        android:text="Pessoa Jurídica"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:backgroundTint="#DC7A0F" />
 
-
+    <Button
+        android:id="@+id/confirmar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/modelo_botao"
+        android:text="Confirmar"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:backgroundTint="#DC7A0F" />
 
 
 </LinearLayout>

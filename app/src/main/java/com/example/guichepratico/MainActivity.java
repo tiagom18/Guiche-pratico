@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         this.getBtnNovoTicket().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,NovoTicket.class);
+                Intent intent = new Intent(MainActivity.this, EscolhaPrioridade.class);
                 startActivity(intent);
             }
         });

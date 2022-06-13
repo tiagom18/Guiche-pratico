@@ -9,13 +9,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuichePratico">
         <activity
+            android:name=".EscolhaAgencia"
+            android:exported="false" />
+        <activity
+            android:name=".EscolhaAtendimento"
+            android:exported="false" />
+        <activity
             android:name=".Historico"
             android:exported="false" />
         <activity
             android:name=".AcompanheTicket"
             android:exported="false" />
         <activity
-            android:name=".NovoTicket"
+            android:name=".EscolhaPrioridade"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

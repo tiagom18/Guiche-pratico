@@ -3,4 +3,8 @@
     <string name="novoticket">Ticket: 1234</string>
     <string name="acompanheTicket">Seu ticket é: 1234</string>
     <string name="historicoTicket">Historico de ticket: 1234</string>
+    <string name="opcaoPrioridade">Escolha a opção abaixo:</string>
+    <string name="opcaoAtendimento">Escolha o tipo de atendimento:</string>
+    <string name="opcaoAgencia">Escolha a Agencia:</string>
+    <string name="seuTicket">O seu Ticket atual é:</string>
 </resources>
