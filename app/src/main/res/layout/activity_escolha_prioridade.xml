@@ -26,9 +26,9 @@
 <RadioGroup
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/radioGroupOpcoes"
+    android:id="@+id/radioGroupOpcoesPrioridade"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">>
+    app:layout_constraintTop_toTopOf="parent">
     <RadioButton
         android:id="@+id/prioridadeNormal"
         android:layout_width="match_parent"
