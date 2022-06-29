@@ -7,4 +7,7 @@
     <string name="opcaoAtendimento">Escolha o tipo de atendimento:</string>
     <string name="opcaoAgencia">Escolha a Agencia:</string>
     <string name="seuTicket">O seu Ticket atual é:</string>
+    <string name="normal">Normal</string>
+    <string name="prioritario">Prioritario</string>
+    <string name="pessoaJ">Pessoa Juridica</string>
 </resources>

@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuichePratico">
         <activity
+            android:name=".Example"
+            android:exported="false" />
+        <activity
             android:name=".EscolhaAgencia"
             android:exported="false" />
         <activity
