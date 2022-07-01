@@ -8,8 +8,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import java.util.Random;
 
 public class AcompanheTicket extends AppCompatActivity {
+
+    private String agencia;
+    private String atendimento;
+    private String prioridade;
+
 
     public View getBtnMenuInicial() {
         return btnMenuInicial;
@@ -21,43 +29,6 @@ public class AcompanheTicket extends AppCompatActivity {
 
     private View btnMenuInicial;
 
-    private SharedPreferences salvarPrioridade;
-    private SharedPreferences.Editor editorPrioridade;
-    private RadioGroup valorPrioridade;
-
-    public SharedPreferences getSalvarPrioridade() {
-        return salvarPrioridade;
-    }
-
-    public void setSalvarPrioridade(SharedPreferences salvarPrioridade) {
-        this.salvarPrioridade = salvarPrioridade;
-    }
-
-    public SharedPreferences.Editor getEditorPrioridade() {
-        return editorPrioridade;
-    }
-
-    public void setEditorPrioridade(SharedPreferences.Editor editorPrioridade) {
-        this.editorPrioridade = editorPrioridade;
-    }
-
-    public RadioGroup getValorPrioridade() {
-        return valorPrioridade;
-    }
-
-    public void setValorPrioridade(RadioGroup valorPrioridade) {
-        this.valorPrioridade = valorPrioridade;
-    }
-
-    public int getPrioridadeSelecionada() {
-        return prioridadeSelecionada;
-    }
-
-    public void setPrioridadeSelecionada(int prioridadeSelecionada) {
-        this.prioridadeSelecionada = prioridadeSelecionada;
-    }
-
-    private int prioridadeSelecionada;
 
 
     @Override
@@ -65,16 +36,29 @@ public class AcompanheTicket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acompanhe_ticket);
 
+        Intent it= getIntent();
+        Random ran = new Random();
 
-        valorPrioridade = (RadioGroup) findViewById(R.id.radioGroupOpcoesPrioridade);
-        salvarPrioridade = getSharedPreferences("save",MODE_PRIVATE);
-        prioridadeSelecionada = salvarPrioridade.getInt("chave_radio", 0);
+        String[] letras ={"0","1","2","3","4","5","6","7","8","9"};
+        String b = "";
 
-        if(prioridadeSelecionada == R.id.prioridadeNormal ){
-            Log.d("teste", "aqui sim" );
+        int num = 3;
+
+        for ( int i = 0; i < num; i++){
+            int a = ran.nextInt(letras.length);
+            b += letras[a];
         }
 
+        System.out.print("Senha gerada: " + b);
 
+
+        Bundle params = it.getExtras();
+        prioridade = params.getString("PRIORIDADE");
+        atendimento = params.getString("ATENDIMENTO");
+        agencia = params.getString("AGENCIA");
+
+        TextView valorTicket = findViewById(R.id.textViewValor);
+        valorTicket.setText("Prioridade: " + prioridade +"\n"+ "Atendimento: \n"+ atendimento +"\n"+"Agencia: \n"+ agencia +"\n"+ "Senha: \n" +b);
         this.setBtnMenuInicial(findViewById(R.id.menuInicial));
         this.getBtnMenuInicial().setOnClickListener(new View.OnClickListener() {
             @Override

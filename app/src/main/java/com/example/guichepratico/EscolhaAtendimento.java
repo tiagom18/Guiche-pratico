@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -16,72 +17,38 @@ public class EscolhaAtendimento extends AppCompatActivity {
     private View btnEscolhaAtendimento;
     private SharedPreferences salvarAtendimento;
     private SharedPreferences.Editor editorAtendimento;
-    private RadioGroup valorAtendimento;
-    private int atendimentoSelecionado;
-
-    private SharedPreferences salvarPrioridade;
-    private SharedPreferences.Editor editorPrioridade;
-    private RadioGroup valorPrioridade;
-    private int prioridadeSelecionada;
-
+    private RadioGroup grupoAtendimento;
+    private int btnIdAtendimentoSelecionada;
+    private String prioridade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escolha_atendimento);
 
+        grupoAtendimento = (RadioGroup) findViewById(R.id.radioGroupOpcoesAtendimento);
 
-        valorAtendimento = (RadioGroup) findViewById(R.id.radioGroupOpcoesAtendimento);
-        salvarAtendimento = getSharedPreferences("save",MODE_PRIVATE);
+        Intent it= getIntent();
 
-        //Recupera o valor do indiceSelecionado
-        atendimentoSelecionado = salvarAtendimento.getInt("chave_radio", 0);
-        //Executa a condição abaixo para ver qual o ultimo ID que fora salvo, ou seja
-        //qual o ultimo radioButton foi marcado
-
-
-        if(atendimentoSelecionado == R.id.gerencia){
-            valorAtendimento.check(R.id.prioridadeNormal);
-        }else if (atendimentoSelecionado == R.id.caixa){
-            valorAtendimento.check(R.id.prioridadePrioritaria);
-        }
-
-
-
-
-
-
+        Bundle params = it.getExtras();
+        prioridade = params.getString("PRIORIDADE");
 
         this.setBtnEscolhaAtendimento(findViewById(R.id.confirmar));
         this.getBtnEscolhaAtendimento().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnIdAtendimentoSelecionada = grupoAtendimento.getCheckedRadioButtonId();
+                RadioButton btnAtendimento = findViewById(btnIdAtendimentoSelecionada);
+                String atendimento = btnAtendimento.getText().toString();
 
-
-                Intent intent = new Intent(EscolhaAtendimento.this, EscolhaAgencia.class);
-                startActivity(intent);
+                Intent intentAtendimento = new Intent(EscolhaAtendimento.this, EscolhaAgencia.class);
+                Bundle params = new Bundle();
+                params.putString("PRIORIDADE", prioridade);
+                params.putString("ATENDIMENTO",atendimento);
+                intentAtendimento.putExtras(params);
+                startActivity(intentAtendimento);
             }
-
         });
-    }
-
-    @Override
-    protected void onStop() {
-    /*
-    Ao ser chamado o metodo onStop ou seja, após a aplicação parar é feito um putString
-    do nome digitado pelo usuário, assim ele grava o ultimo nome digitado para que quando
-    volte para a aplicação o campo Nome já esta preenchido
-    */
-        super.onStop();
-        /*
-         * A variavel indiceSelecionado pega o ID do radio button que esta marcado
-         * dessa maneira é salvo ela com uma chave do tipo chave_radio, para assim
-         * recuperar a mesma no método Oncreate
-         * */
-        atendimentoSelecionado = valorAtendimento.getCheckedRadioButtonId();
-        editorAtendimento = salvarAtendimento.edit();
-        editorAtendimento.putInt("chave_radio", atendimentoSelecionado);
-        editorAtendimento.commit();
     }
     public View getBtnEscolhaAtendimento() {
         return btnEscolhaAtendimento;
@@ -90,6 +57,7 @@ public class EscolhaAtendimento extends AppCompatActivity {
     public void setBtnEscolhaAtendimento(View btnEscolhaAtendimento) {
         this.btnEscolhaAtendimento = btnEscolhaAtendimento;
     }
+
     public SharedPreferences getSalvarAtendimento() {
         return salvarAtendimento;
     }
@@ -106,20 +74,22 @@ public class EscolhaAtendimento extends AppCompatActivity {
         this.editorAtendimento = editorAtendimento;
     }
 
-    public RadioGroup getValorAtendimento() {
-        return valorAtendimento;
+    public RadioGroup getGrupoAtendimento() {
+        return grupoAtendimento;
     }
 
-    public void setValorAtendimento(RadioGroup valorAtendimento) {
-        this.valorAtendimento = valorAtendimento;
+    public void setGrupoAtendimento(RadioGroup grupoAtendimento) {
+        this.grupoAtendimento = grupoAtendimento;
     }
 
-    public int getAtendimentoSelecionado() {
-        return atendimentoSelecionado;
+    public int getBtnIdAtendimentoSelecionada() {
+        return btnIdAtendimentoSelecionada;
     }
 
-    public void setAtendimentoSelecionado(int atendimentoSelecionado) {
-        this.atendimentoSelecionado = atendimentoSelecionado;
+    public void setBtnIdAtendimentoSelecionada(int btnIdAtendimentoSelecionada) {
+        this.btnIdAtendimentoSelecionada = btnIdAtendimentoSelecionada;
     }
+
+
 
 }

@@ -5,86 +5,50 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EscolhaPrioridade extends AppCompatActivity {
 
-    private View btnEscolhaPrioridade;
+    private View btnConfirmaPrioridade;
     private SharedPreferences salvarPrioridade;
     private SharedPreferences.Editor editorPrioridade;
-    private RadioGroup valorPrioridade;
-    private int prioridadeSelecionada;
+    private RadioGroup grupoPrioridade;
+    private int btnIdPrioridadeSelecionada;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escolha_prioridade);
+        grupoPrioridade = (RadioGroup) findViewById(R.id.radioGroupOpcoesPrioridade);
 
-        valorPrioridade = (RadioGroup) findViewById(R.id.radioGroupOpcoesPrioridade);
-        salvarPrioridade = getSharedPreferences("save",MODE_PRIVATE);
-
-        //Recupera o valor do indiceSelecionado
-        prioridadeSelecionada = salvarPrioridade.getInt("chave_radio", 0);
-        //Executa a condição abaixo para ver qual o ultimo ID que fora salvo, ou seja
-        //qual o ultimo radioButton foi marcado
-
-
-        if(prioridadeSelecionada == R.id.prioridadeNormal){
-            valorPrioridade.check(R.id.prioridadeNormal);
-        }else if (prioridadeSelecionada == R.id.prioridadePrioritaria){
-            valorPrioridade.check(R.id.prioridadePrioritaria);
-        }else if(prioridadeSelecionada == R.id.prioridadeJuridica){
-            valorPrioridade.check(R.id.prioridadeJuridica);
-        }
-
-        //me salvou
-        Toast.makeText(this, "Id: " + prioridadeSelecionada, Toast.LENGTH_LONG).show();
-        Log.d("teste", "prioridade Selecionada" + this.getPrioridadeSelecionada());
-
-        if(prioridadeSelecionada == R.id.prioridadeNormal ){
-            Log.d("teste", "aqui sim" );
-        }
-        //só pro teste
-        this.setBtnEscolhaPrioridade(findViewById(R.id.confirmar));
-        this.getBtnEscolhaPrioridade().setOnClickListener(new View.OnClickListener() {
+        this.setBtnConfirmaPrioridade(findViewById(R.id.confirmar));
+        this.getBtnConfirmaPrioridade().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnIdPrioridadeSelecionada = grupoPrioridade.getCheckedRadioButtonId();
+                RadioButton btnPrioridade = findViewById(btnIdPrioridadeSelecionada);
+                String prioridade = btnPrioridade.getText().toString();
+
                 Intent intentPrioridade = new Intent(EscolhaPrioridade.this, EscolhaAtendimento.class);
-
+                Bundle params = new Bundle();
+                params.putString("PRIORIDADE",prioridade);
+                intentPrioridade.putExtras(params);
                 startActivity(intentPrioridade);
-
             }
         });
     }
 
-    @Override
-    protected void onStop() {
-    /*
-    Ao ser chamado o metodo onStop ou seja, após a aplicação parar é feito um putString
-    do nome digitado pelo usuário, assim ele grava o ultimo nome digitado para que quando
-    volte para a aplicação o campo Nome já esta preenchido
-    */
-        super.onStop();
-        /*
-         * A variavel indiceSelecionado pega o ID do radio button que esta marcado
-         * dessa maneira é salvo ela com uma chave do tipo chave_radio, para assim
-         * recuperar a mesma no método Oncreate
-         * */
-        prioridadeSelecionada = valorPrioridade.getCheckedRadioButtonId();
-        editorPrioridade = salvarPrioridade.edit();
-        editorPrioridade.putInt("chave_radio", prioridadeSelecionada);
-        editorPrioridade.commit();
-    }
-    public View getBtnEscolhaPrioridade() {
-        return btnEscolhaPrioridade;
+
+    public View getBtnConfirmaPrioridade() {
+        return btnConfirmaPrioridade;
     }
 
-    public void setBtnEscolhaPrioridade(View btnEscolhaPrioridade) {
-        this.btnEscolhaPrioridade = btnEscolhaPrioridade;
+    public void setBtnConfirmaPrioridade(View btnConfirmaPrioridade) {
+        this.btnConfirmaPrioridade = btnConfirmaPrioridade;
     }
 
     public SharedPreferences getSalvarPrioridade() {
@@ -103,19 +67,19 @@ public class EscolhaPrioridade extends AppCompatActivity {
         this.editorPrioridade = editorPrioridade;
     }
 
-    public RadioGroup getValorPrioridade() {
-        return valorPrioridade;
+    public RadioGroup getGrupoPrioridade() {
+        return grupoPrioridade;
     }
 
-    public void setValorPrioridade(RadioGroup valorPrioridade) {
-        this.valorPrioridade = valorPrioridade;
+    public void setGrupoPrioridade(RadioGroup grupoPrioridade) {
+        this.grupoPrioridade = grupoPrioridade;
     }
 
-    public int getPrioridadeSelecionada() {
-        return prioridadeSelecionada;
+    public int getBtnIdPrioridadeSelecionada() {
+        return btnIdPrioridadeSelecionada;
     }
 
-    public void setPrioridadeSelecionada(int prioridadeSelecionada) {
-        this.prioridadeSelecionada = prioridadeSelecionada;
+    public void setBtnIdPrioridadeSelecionada(int btnIdPrioridadeSelecionada) {
+        this.btnIdPrioridadeSelecionada = btnIdPrioridadeSelecionada;
     }
 }
