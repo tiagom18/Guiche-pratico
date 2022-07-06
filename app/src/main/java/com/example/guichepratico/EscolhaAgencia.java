@@ -13,8 +13,6 @@ import android.widget.RadioGroup;
 public class EscolhaAgencia extends AppCompatActivity {
 
     private RadioGroup grupoAgencia;
-
-
     private View btnEscolhaAgencia;
     private String prioridade;
     private String atendimento;

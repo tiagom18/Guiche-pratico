@@ -1,15 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Historico"
-    android:background="@color/azulfigma">
+    android:background="@color/azulfigma"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/guiche_pratico_logo" />
+    <TextView
+        android:id="@+id/textViewHistorico"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/modelo_botao"
+        android:text="Seu Historico:"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:backgroundTint="@color/laranjafigma" />
+    <TextView
+        android:id="@+id/textViewHistorico1"
+        android:layout_width="310dp"
+        android:layout_height="197dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/modelo_botao"
+
+        android:text="Prioridade: Normal Atendimento: Caixa                 Agencia: Asa Norte
+             Senha: 001         Status: Concluido"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:backgroundTint="@color/laranjafigma" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/historicoTicket" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/textViewHistorico2"
+        android:layout_width="310dp"
+        android:layout_height="197dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/modelo_botao"
+        android:text="Prioridade: Normal Atendimento: Gerencia           Agencia: Asa Sul                  Senha: 002            Status: Concluido"
+
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:backgroundTint="@color/laranjafigma" />
+
+
+</LinearLayout>
+</ScrollView>

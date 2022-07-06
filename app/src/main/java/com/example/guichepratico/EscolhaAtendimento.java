@@ -15,8 +15,7 @@ public class EscolhaAtendimento extends AppCompatActivity {
 
 
     private View btnEscolhaAtendimento;
-    private SharedPreferences salvarAtendimento;
-    private SharedPreferences.Editor editorAtendimento;
+
     private RadioGroup grupoAtendimento;
     private int btnIdAtendimentoSelecionada;
     private String prioridade;
@@ -58,21 +57,7 @@ public class EscolhaAtendimento extends AppCompatActivity {
         this.btnEscolhaAtendimento = btnEscolhaAtendimento;
     }
 
-    public SharedPreferences getSalvarAtendimento() {
-        return salvarAtendimento;
-    }
 
-    public void setSalvarAtendimento(SharedPreferences salvarAtendimento) {
-        this.salvarAtendimento = salvarAtendimento;
-    }
-
-    public SharedPreferences.Editor getEditorAtendimento() {
-        return editorAtendimento;
-    }
-
-    public void setEditorAtendimento(SharedPreferences.Editor editorAtendimento) {
-        this.editorAtendimento = editorAtendimento;
-    }
 
     public RadioGroup getGrupoAtendimento() {
         return grupoAtendimento;

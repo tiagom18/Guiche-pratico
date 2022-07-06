@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EscolhaPrioridade extends AppCompatActivity {
 
     private View btnConfirmaPrioridade;
-    private SharedPreferences salvarPrioridade;
-    private SharedPreferences.Editor editorPrioridade;
     private RadioGroup grupoPrioridade;
     private int btnIdPrioridadeSelecionada;
 
@@ -51,21 +49,7 @@ public class EscolhaPrioridade extends AppCompatActivity {
         this.btnConfirmaPrioridade = btnConfirmaPrioridade;
     }
 
-    public SharedPreferences getSalvarPrioridade() {
-        return salvarPrioridade;
-    }
 
-    public void setSalvarPrioridade(SharedPreferences salvarPrioridade) {
-        this.salvarPrioridade = salvarPrioridade;
-    }
-
-    public SharedPreferences.Editor getEditorPrioridade() {
-        return editorPrioridade;
-    }
-
-    public void setEditorPrioridade(SharedPreferences.Editor editorPrioridade) {
-        this.editorPrioridade = editorPrioridade;
-    }
 
     public RadioGroup getGrupoPrioridade() {
         return grupoPrioridade;

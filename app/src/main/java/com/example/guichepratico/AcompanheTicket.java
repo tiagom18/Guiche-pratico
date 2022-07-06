@@ -17,20 +17,15 @@ public class AcompanheTicket extends AppCompatActivity {
     private String agencia;
     private String atendimento;
     private String prioridade;
-
-
     public View getBtnMenuInicial() {
         return btnMenuInicial;
     }
-
     public void setBtnMenuInicial(View btnMenuInicial) {
         this.btnMenuInicial = btnMenuInicial;
     }
-
     private View btnMenuInicial;
-
-
-
+    private String[] numeros ={"0","1","2","3","4","5","6","7","8","9"};
+    private String senha = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,17 +34,13 @@ public class AcompanheTicket extends AppCompatActivity {
         Intent it= getIntent();
         Random ran = new Random();
 
-        String[] letras ={"0","1","2","3","4","5","6","7","8","9"};
-        String b = "";
 
         int num = 3;
 
         for ( int i = 0; i < num; i++){
-            int a = ran.nextInt(letras.length);
-            b += letras[a];
+            int a = ran.nextInt(numeros.length);
+            senha = numeros[a];
         }
-
-        System.out.print("Senha gerada: " + b);
 
 
         Bundle params = it.getExtras();
@@ -58,7 +49,7 @@ public class AcompanheTicket extends AppCompatActivity {
         agencia = params.getString("AGENCIA");
 
         TextView valorTicket = findViewById(R.id.textViewValor);
-        valorTicket.setText("Prioridade: " + prioridade +"\n"+ "Atendimento: \n"+ atendimento +"\n"+"Agencia: \n"+ agencia +"\n"+ "Senha: \n" +b);
+        valorTicket.setText("Prioridade:\n" + prioridade +"\n"+ "Atendimento:\n"+ atendimento +"\n"+"Agencia: \n"+ agencia +"\n"+ "Senha: \n" +senha);
         this.setBtnMenuInicial(findViewById(R.id.menuInicial));
         this.getBtnMenuInicial().setOnClickListener(new View.OnClickListener() {
             @Override

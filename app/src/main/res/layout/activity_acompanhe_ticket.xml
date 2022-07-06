@@ -11,8 +11,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -31,7 +29,7 @@
         android:id="@+id/textViewValor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+
         android:text=""
         android:textSize="30sp" />
 
